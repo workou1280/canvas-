@@ -1,6 +1,8 @@
 # canvas-
 Making painting board with js
 
+click : https://workou1280.github.io/canvas-/.
+
 #Seconde step
 
 새롭게 알게된 기술
