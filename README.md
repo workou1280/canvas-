@@ -58,3 +58,27 @@ stroke() path 채워주기
 #fifth step 
 
 array를 선언해서 stroke 색깔 바꿔주기 
+
+#fifth step
+
+아래와 같은 예시로 작성하면 더 에러를 많이 줄이고 작성할 수 있음
+
+if (mode) 
+
+{
+    
+    mode.addEventListener("click", handleModeClick);
+
+}
+
+Event의 활용도가 중요하니 아래에 가서 event 확인 하도록
+
+https://developer.mozilla.org/ko/docs/Web/Events
+
+Error
+
+app.js에서 type 에러가 났음 
+
+그 이유 html document가 읽히기 전에 이미 app.js가 작동해서 그런 것 
+
+해결책 : 아래로 내려버림 끝

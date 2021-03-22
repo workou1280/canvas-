@@ -2,15 +2,19 @@
     const canvas = document.getElementById("jsCanvas");
     const ctx = canvas.getContext("2d");
     const colors = document.getElementsByClassName("jsColor");
+    const range = document.getElementById("jsRange");
+    const mode = document.getElementById("jsMode");
 
     // 동작 범위 필요 canvas만 실행 하면 안됨
     canvas.width = 700;
     canvas.height = 700;
 
+    //default set
     ctx.strokeStyle = "black";
     ctx.lineWidth = 2.5;
 
     let painting = false;
+    let filling = false;
 
     function stopPainting() {
         painting = false;
@@ -36,7 +40,23 @@
         const color = event.target.style.backgroundColor;
         ctx.strokeStyle = color;
     }
+    
+    function handleRangeChange(event) {
+        const size  = event.target.value;
+        console.log(size);
+        ctx.lineWidth = size;
+    }
 
+    function handleModeClick() {
+        if (filling === true) {
+            filling = false;
+            mode.innerText = "Fill";
+        } else {
+            filling = true;
+            mode.innerText = "Paint";
+        }
+    }
+    
     if (canvas) {
         canvas.addEventListener("mousemove", onMouseMove);
         canvas.addEventListener("mousedown", startPainting);
@@ -45,6 +65,14 @@
     }
 
     Array.from(colors).forEach(color =>
-        color.addEventListener("click",handleColorClick)
+        color.addEventListener("click", handleColorClick)
     );
+
+    if (range) {
+        range.addEventListener("input", handleRangeChange);
+    }
+
+    if (mode) {
+        mode.addEventListener("click", handleModeClick);
+    }
 }
