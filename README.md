@@ -54,3 +54,7 @@ moveTo(x,y) 라인의 시작점
 lineTo(x,y) 라인의 끝점 
 
 stroke() path 채워주기
+
+#fifth step 
+
+array를 선언해서 stroke 색깔 바꿔주기 
