@@ -64,8 +64,11 @@ array를 선언해서 stroke 색깔 바꿔주기
 아래와 같은 예시로 작성하면 더 에러를 많이 줄이고 작성할 수 있음
 
 if (mode) 
+
 {
+
     mode.addEventListener("click", handleModeClick);
+
 }
 
 Event의 활용도가 중요하니 아래에 가서 event 확인 하도록
@@ -86,8 +89,26 @@ app.js에서 type 에러가 났음
 채우기 기본 동작
 
 ctx.fillStyle = 'blue';
+
 ctx.fillRect(10, 10, 100, 100);
 
 1.색깔을 눌러서 fillstyle 색깔을 바꿔준다
+
 2.mode를 눌러 fill 모드로 바꿔준다.(filling 즉,flag를 on 시킴)
+
 3.캔버스를 click 하면 색깔이 filling 되게 만들어 준다.
+
+
+#eight
+
+save 버튼 만들어 주기 
+
+1.태크를 create
+
+2.태그에 href,download 속성을 추가 해준다. 즉, 이미 a요소가 href,download 속성을 가지고 있어야 한다.
+
+3.a 태그에 click event를 넣어주면 끝 
+
+자세한 설명은 아래 링크에 
+
+https://developer.mozilla.org/ko/docs/Web/HTML/Element/a

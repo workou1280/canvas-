@@ -4,6 +4,7 @@
     const colors = document.getElementsByClassName("jsColor");
     const range = document.getElementById("jsRange");
     const mode = document.getElementById("jsMode");
+    const saveBtn = document.getElementById("jsSave");
 
     // 동작 범위 필요 canvas만 실행 하면 안됨
     const INITIAL_COLOR = "#2c2c2c";
@@ -13,6 +14,8 @@
     canvas.width = CANVAS_SIZE;
     canvas.height = CANVAS_SIZE;
     
+    ctx.fillStyle = "white"
+    ctx.fillRect(0,0,CANVAS_SIZE,CANVAS_SIZE);
     ctx.strokeStyle = INITIAL_COLOR;
     ctx.fillStyle = INITIAL_COLOR;
     ctx.lineWidth = 2.5;
@@ -48,7 +51,6 @@
     
     function handleRangeChange(event) {
         const size  = event.target.value;
-        console.log(size);
         ctx.lineWidth = size;
     }
 
@@ -62,10 +64,18 @@
         }
     }
 
-    function hadleCanvasClick() {
+    function handleCanvasClick() {
         if (filling){
-            ctx.fillRect(0, 0, CANVAS_SIZE, CANVAS_SIZE)   
+            ctx.fillRect(0,0,CANVAS_SIZE,CANVAS_SIZE);
         }
+    }
+
+    function handleSaveClick() {
+        const img = canvas.toDataURL();
+        const link = document.createElement("a");
+        link.href = img;
+        link.download="PaingJS";
+        link.click();
     }
     
     if (canvas) {
@@ -73,7 +83,7 @@
         canvas.addEventListener("mousedown", startPainting);
         canvas.addEventListener("mouseup", stopPainting);
         canvas.addEventListener("mouseleave", stopPainting);
-        canvas.addEventListener("click", hadleCanvasClick);
+        canvas.addEventListener("click", handleCanvasClick);
     }
 
     Array.from(colors).forEach(color =>
@@ -86,5 +96,9 @@
 
     if (mode) {
         mode.addEventListener("click", handleModeClick);
+    }
+
+    if (saveBtn) {
+        saveBtn.addEventListener("click", handleSaveClick);
     }
 }
