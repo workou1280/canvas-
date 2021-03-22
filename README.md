@@ -43,3 +43,14 @@ Error
 At the start, i got an error msg from web which is that variation is alreday defined.
 
 i was confused, because i have no problem for defining variaition without parenthesis untill i got the msg. so anyway it's not fault. it's beacuase of javascript. So if you add parenthesis on before you define variation. It works!!!
+
+
+#fourth step
+
+beginPath() path,즉 라인을 그리고 싶을 때 시작해야 할 점
+
+moveTo(x,y) 라인의 시작점
+
+lineTo(x,y) 라인의 끝점 
+
+stroke() path 채워주기
